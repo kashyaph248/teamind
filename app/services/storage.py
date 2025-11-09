@@ -22,7 +22,7 @@ def save_summary(source: str, input_text: str, summary: str, user_id: str | None
     table_url = f"{base_url}/rest/v1/summaries"
 
     payload = {
-        "user_id": user_id,
+        "user_id": user_id or "anonymous",
         "source": source,
         "input_text": (input_text or "")[:8000],
         "summary": (summary or "")[:8000],
