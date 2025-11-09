@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routes import upload, text_summary, ask
+from app.routes import summaries
 
 app = FastAPI(title="TeamMind AI - Backend")
 
@@ -17,6 +18,7 @@ app.add_middleware(
 app.include_router(upload.router, prefix="/api")
 app.include_router(text_summary.router, prefix="/api")
 app.include_router(ask.router, prefix="/api")
+app.include_router(summaries.router, prefix="/api")
 
 @app.get("/health")
 def health_check():
